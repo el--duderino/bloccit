@@ -54,3 +54,8 @@ gem 'bootstrap-sass', '~> 3.1.1'
 
 # seed
 gem 'faker'
+
+#authentication
+gem 'devise'
+
+gem 'figaro'
