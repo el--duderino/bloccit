@@ -1,0 +1,25 @@
+<h1><%= @topic.name %></h1>
+<p><%= @topic.description %></p>
+
+<%= link_to "New Post", new_topic_post_path(@topic), class: 'btn btn-success' if policy(Post.new).create? %>
+
+<% @topic.posts.each do |post| %>
+  <div class="post row">
+    <div class="col-md-10">
+        <div class="media">
+          <div class="media-body">
+            <h4 class="media-heading">
+              <%= link_to post.title, [@topic, post] %>
+            </h4>
+            <small>
+              <%= truncate post.body, :length => 100 %>
+            </small>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+      <span class='label label-info'><%= "#{post.comments.count} comment#{'s' if post.comments.count != 1}" %></span><br />
+      <span class='supplement'><%= "Created #{time_ago_in_words(post.created_at)} ago" if post.created_at %></span>
+    </div>
+  </div>
+<% end %>

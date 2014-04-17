@@ -1,0 +1,27 @@
+<h1>Topics</h1>
+
+<%= link_to "New Topic", new_topic_path, class: 'btn btn-success' if policy(Topic.new).create? %>
+
+<% @topics.each do |topic| %>
+  <div class="topic row">
+    <div class="col-md-10">
+        <div class="media">
+          <div class="media-body">
+            <h4 class="media-heading">
+              <%= link_to topic.name, topic %>
+            </h4>
+            <small>
+              <%= topic.description %>
+            </small>
+            <% if policy(Topic.new).create? %>
+              </br><%= link_to "edit", edit_topic_path(topic) %>
+            <% end %>
+          </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+      <span class='label label-info'><%= "#{topic.posts.count} post#{'s' if topic.posts.count != 1}" %></span><br />
+      <span class='supplement'><%= "Updated #{time_ago_in_words(topic.posts.first.created_at)} ago" if topic.posts.first %></span>
+    </div>
+  </div>
+<% end %>
