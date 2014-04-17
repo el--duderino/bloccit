@@ -25,6 +25,15 @@ user.update_attributes(email: 'el_duderino@aol.com',
   password: 'password',
   password_confirmation: 'password')
 
+admin = User.new(
+  name: 'Admin Martinez',
+  email: 'admin@admin.com',
+  password: 'password',
+  password_confirmation: 'password')
+admin.skip_confirmation!
+admin.save
+admin.update_attribute(:role, 'admin')
+
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Post.count} posts created"

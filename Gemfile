@@ -55,7 +55,11 @@ gem 'bootstrap-sass', '~> 3.1.1'
 # seed
 gem 'faker'
 
-#authentication
+# authentication
 gem 'devise'
 
+# environment variables
 gem 'figaro'
+
+# authorization
+gem 'pundit'

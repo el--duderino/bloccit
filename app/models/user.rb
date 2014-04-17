@@ -6,4 +6,9 @@ class User < ActiveRecord::Base
          :confirmable
 
   has_many :posts
+
+  def role?(base_role)
+    role == base_role.to_s
+  end
+  
 end
