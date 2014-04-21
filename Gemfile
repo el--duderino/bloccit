@@ -63,3 +63,6 @@ gem 'figaro'
 
 # authorization
 gem 'pundit'
+
+# markdown
+gem 'redcarpet'
