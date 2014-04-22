@@ -66,3 +66,10 @@ gem 'pundit'
 
 # markdown
 gem 'redcarpet'
+
+# images
+gem 'carrierwave'
+gem 'mini_magick'
+
+# amazon s3
+gem 'fog'

@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :confirmable
 
   has_many :posts
+  mount_uploader :avatar, AvatarUploader
 
   def role?(base_role)
     role == base_role.to_s
