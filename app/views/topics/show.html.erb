@@ -3,7 +3,7 @@
 
 <%= link_to "New Post", new_topic_post_path(@topic), class: 'btn btn-success' if policy(Post.new).create? %>
 
-<% @topic.posts.each do |post| %>
+<% @posts.each do |post| %>
   <div class="post row">
     <div class="col-md-10">
         <div class="media">
@@ -26,3 +26,4 @@
     </div>
   </div>
 <% end %>
+<%= will_paginate @posts %>
