@@ -1,12 +1,14 @@
 Bloccit::Application.routes.draw do
   
+  get "comment/create"
   devise_for :users
 
   resources :users, only: [:update]
-  # put 'users' => 'users#update'
   
   resources :topics do
-    resources :posts, except: [:index]
+    resources :posts, except: [:index] do
+      resources :comments, only: [:create]
+    end
   end 
 
   get 'about' => 'welcome#about'

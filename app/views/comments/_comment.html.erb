@@ -1,0 +1,9 @@
+<div class="comment">
+  <%= image_tag(comment.user.avatar.url) if comment.user.avatar? %>
+  <div class="comment-body">
+    <small>
+      <%= comment.user.name %> said:
+    </small>
+    <p><%= comment.body  %></p>
+  </div>
+</div>

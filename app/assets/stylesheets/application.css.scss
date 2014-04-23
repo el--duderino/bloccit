@@ -20,3 +20,22 @@ p {
   font-size: 0.8em;
   color: #aaa;
 }
+
+.comment {
+  margin-bottom: 10px;
+  overflow: auto;
+}
+
+.comment .comment-body {
+  overflow: hidden;
+}
+
+.comment img {
+  width: 50px;
+  margin-right: 10px;
+  float: left;
+}
+
+textarea {
+  margin-bottom: 10px;
+}
