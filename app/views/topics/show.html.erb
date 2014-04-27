@@ -9,6 +9,7 @@
   <div class="post row">
     <div class="col-md-10">
         <div class="media">
+          <%= render partial: 'votes/voter', locals: { topic: @topic, post: post } %>
           <div class="media-body">
             <h4 class="media-heading">
               <%= markdown link_to post.title, [@topic, post] %>
