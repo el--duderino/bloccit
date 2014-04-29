@@ -15,7 +15,7 @@
 
     <h3>Comments</h3>
 
-    <%= render @comments %>
+    <%= render partial: 'comments/comment', collection: @comments %>
 
     <%= form_for [@topic, @post, @comment] do |f| %>
       <%= f.text_area :body, rows: 8, columns: 10, class: 'form-control', placeholder: "Enter comment" %>
