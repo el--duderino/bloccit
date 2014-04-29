@@ -13,7 +13,7 @@
       <%= image_tag @post.image.url %>
     </div>
 
-    <h3>Comments</h3>
+    <h2 class='js-comments-count'><%= pluralize(@post.comments.count, 'Comment') %></h2>
 
     <%= render partial: 'comments/comment', collection: @comments %>
 

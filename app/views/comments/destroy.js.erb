@@ -1,0 +1,6 @@
+<% if @comment.destroyed? %>
+  $('#comment-' +<%= @comment.id %>).hide('fast').delay(50).queue(function(){$(this).remove()});
+  $('.js-comments-count').html("<%= pluralize(@post.comments.count, 'Comment') %>");
+<% else %>
+  $('#comment-' +<%= @comment.id %>).prepend("<div class='alert alert-danger'><%= flash[:error] %></div>");
+<% end %>
