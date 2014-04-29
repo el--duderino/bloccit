@@ -5,7 +5,6 @@
       <h1 class="media-heading"><%= markdown @post.title %></h1>
 
       <small>
-        <%= image_tag(@post.user.avatar.small.url) if @post.user.avatar? %>
         submitted <%= time_ago_in_words(@post.created_at) %> ago by
         <%= @post.user.name %>
       </small>
@@ -14,13 +13,11 @@
     </div>
 
     <h2 class='js-comments-count'><%= pluralize(@post.comments.count, 'Comment') %></h2>
+    <div class="js-comments">
+      <%= render partial: 'comments/comment', collection: @comments %>
+    </div>
 
-    <%= render partial: 'comments/comment', collection: @comments %>
-
-    <%= form_for [@topic, @post, @comment] do |f| %>
-      <%= f.text_area :body, rows: 8, columns: 10, class: 'form-control', placeholder: "Enter comment" %>
-      <%= f.submit "Create comment", class: 'btn btn-success' %>
-    <% end %>
+    <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
     <br />
 
   </div>

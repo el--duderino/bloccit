@@ -1,5 +1,5 @@
 <%= content_tag :div, class: 'media', id: "comment-#{comment.id}" do %>
-  <%= image_tag(comment.user.avatar.url) if comment.user.avatar? %> 
+  <div class="pull-left"><%= image_tag(comment.user.avatar.profile.url) if comment.user.avatar? %></div>
   <div class="comment-body">
     <small>
       <%= comment.user.name %> said: 
