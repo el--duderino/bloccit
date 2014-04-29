@@ -3,7 +3,7 @@
   <div class="comment-body">
     <small>
       <%= comment.user.name %> said: 
-      <%= link_to "Delete", [@topic, @post, comment], method: :delete %>
+      <%= link_to "Delete", comment_url_helper(comment), method: :delete %>
     </small>
     <p><%= comment.body  %></p>
   </div>
